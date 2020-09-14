@@ -13,34 +13,35 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        countView.text = count.toString()
-        color(count)
+        countViewSet(count)
+        key(count)
 
-        plus.setOnClickListener {
+        plusButton.setOnClickListener {
             count += 1
-            countView.text = count.toString()
-            color(count)
+            countViewSet(count)
+            key(count)
         }
 
-        minus.setOnClickListener {
+        minusButton.setOnClickListener {
             count -= 1
-            countView.text = count.toString()
-            color(count)
+            countViewSet(count)
+            key(count)
         }
 
-        clear.setOnClickListener {
+        clearButton.setOnClickListener {
             count = 0
-            countView.text = count.toString()
-            color(count)
+            countViewSet(count)
+            key(count)
         }
     }
 
-    fun color(i) {
+    fun countViewSet(i:Int) {
+        countTextView.text = i.toString()
         when {
-            i % 15 == 0 -> countView.setTextColor(Color.rgb(255,0,0))
-            i % 3 == 0 -> countView.setTextColor(Color.rgb(0,255,0))
-            i % 5 == 0 -> countView.setTextColor(Color.rgb(0,0,250))
-            else -> countView.setTextColor(Color.rgb(0,0,0))
+            i % 15 == 0 -> countTextView.setTextColor(Color.rgb(255,0,0))
+            i % 3 == 0 -> countTextView.setTextColor(Color.rgb(0,255,0))
+            i % 5 == 0 -> countTextView.setTextColor(Color.rgb(0,0,250))
+            else -> countTextView.setTextColor(Color.rgb(0,0,0))
         }
 
 //        if (i % 15 == 0) {
@@ -55,5 +56,15 @@ class MainActivity : AppCompatActivity() {
 //        else{
 //            countView.setTextColor(Color.rgb(0,0,0))
 //        }
+    }
+
+    fun key(i: Int){
+        when{
+            i == 1 -> keyWordView.text = "apple"
+            i == 2 -> keyWordView.text = "banana"
+            i == 3 -> keyWordView.text = "cat"
+            i == 4 -> keyWordView.text = "dog"
+            else -> keyWordView.text = "その番号のキーワードは存在しません"
+        }
     }
 }
