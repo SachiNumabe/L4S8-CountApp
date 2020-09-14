@@ -35,18 +35,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun color(i:Int) {
-        if (i % 15 == 0) {
-            countView.setTextColor(Color.rgb(255,0,0))
+    fun color(i) {
+        when {
+            i % 15 == 0 -> countView.setTextColor(Color.rgb(255,0,0))
+            i % 3 == 0 -> countView.setTextColor(Color.rgb(0,255,0))
+            i % 5 == 0 -> countView.setTextColor(Color.rgb(0,0,250))
+            else -> countView.setTextColor(Color.rgb(0,0,0))
         }
-        else if (i % 5 == 0) {
-            countView.setTextColor(Color.rgb(0,0,255))
-        }
-        else if (i % 3 == 0){
-            countView.setTextColor(Color.rgb(0,255,0))
-        }
-        else{
-            countView.setTextColor(Color.rgb(0,0,0))
-        }
+
+//        if (i % 15 == 0) {
+//            countView.setTextColor(Color.rgb(255,0,0))
+//        }
+//        else if (i % 5 == 0) {
+//            countView.setTextColor(Color.rgb(0,0,255))
+//        }
+//        else if (i % 3 == 0){
+//            countView.setTextColor(Color.rgb(0,255,0))
+//        }
+//        else{
+//            countView.setTextColor(Color.rgb(0,0,0))
+//        }
     }
 }
